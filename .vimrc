@@ -90,3 +90,6 @@ set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
 
 " Indentation lines
 let g:indentLine_setColors = 239
+
+" Remove delay on ESC key
+set timeoutlen=1000 ttimeoutlen=0
