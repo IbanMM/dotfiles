@@ -93,4 +93,3 @@ let g:indentLine_setColors = 239
 
 " Remove delay on ESC key
 set timeoutlen=1000 ttimeoutlen=0
-
