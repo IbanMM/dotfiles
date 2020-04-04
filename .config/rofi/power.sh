@@ -1,35 +1,29 @@
 #!/usr/bin/env bash
 
-# to edit themes in place with live reload:
 
-# ag -l | entr -r $HOME/.config/rofi/on
-# use -normal-window flag on rofi if you want to not have to close rofi to get
-# back to your editor.
-# https://www.reddit.com/r/qtools/comments/amswu9/autoloading_rofi_for_quick_themeing_experience/
-
-options="        Lock
-        Logout
-        Sleep
-        Hibernate
-        Reboot
-        Shutdown"
+options="        lock
+        logout
+        sleep
+        hibernate
+        reboot
+        reboot"
 themes_dir=$HOME/.config/rofi
 theme=${1:-$themes_dir/slate_power.rasi}
-selection=$(echo -e "${options}" | rofi -dmenu -config $theme -columns 1 -lines 6 -width 1500)
+selection=$(echo -e "${options}" | rofi -dmenu -config $theme -columns 1 -lines 6 -width 35)
 
 echo "This is your selection: $selection"
 
 case "${selection}" in
-    "         lock")
+    "        lock")
         lock;;
-    "       logout")
+    "        logout")
         i3-msg exit;;
-    "        sleep")
+    "        sleep")
         lock && systemctl suspend;;
-    "   hibernate")
+    "        hibernate")
         lock && systemctl hibernate;;
-    "      reboot")
+    "        reboot")
         systemctl reboot;;
-    "      shutdown")
+    "        reboot")
         systemctl poweroff -i;;
 esac
