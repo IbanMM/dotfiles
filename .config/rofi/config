@@ -1,0 +1,7 @@
+configuration {
+    modi: "window,drun,ssh,combi";
+    theme: "slate";
+    font: "DejaVu Sans Mono 12";
+    width: 35;
+    combi-modi: "window,drun,ssh";
+}
