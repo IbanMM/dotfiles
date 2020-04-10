@@ -6,7 +6,7 @@ options="        lock
         sleep
         hibernate
         reboot
-        reboot"
+        shutdown"
 themes_dir=$HOME/.config/rofi
 theme=${1:-$themes_dir/slate_power.rasi}
 selection=$(echo -e "${options}" | rofi -dmenu -config $theme -columns 1 -lines 6 -width 35)
@@ -24,6 +24,6 @@ case "${selection}" in
         lock && systemctl hibernate;;
     "        reboot")
         systemctl reboot;;
-    "        reboot")
-        systemctl poweroff -i;;
+    "        shutdown")
+        shutdown -h 0;;
 esac

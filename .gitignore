@@ -5,6 +5,7 @@
 !.gitignore
 !.vimrc
 
+!.bashrc_iban
 
 !/.config
 /.config/*

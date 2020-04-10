@@ -1,0 +1,55 @@
+# -----------------------------------------------------------------
+# Utils
+# -----------------------------------------------------------------
+
+# source bash
+alias sbash="source ~/.bashrc"
+
+# cd amparostorage
+alias storage="cd /mnt/amparostorage/"
+
+# edit i3 config file
+alias i3conf="vim ~/.config/i3/config"
+
+# -----------------------------------------------------------------
+# Pacman
+# -----------------------------------------------------------------
+
+alias pcu="sudo pacman -Syu"
+alias pcy="sudo pacman -Syy"
+
+# Search package in repos
+pcs() {
+    sudo pacman -Ss "$1"
+}
+
+# -----------------------------------------------------------------
+# Git
+# -----------------------------------------------------------------
+
+# add commit pull & push
+gacpp() {
+
+    git add .
+    git commit -m "$1"
+    git pull origin master
+    git push origin master
+
+}
+
+# -----------------------------------------------------------------
+# DevilBox
+# -----------------------------------------------------------------
+
+alias devilshell="cd ~/devilbox/ && sudo ./shell.sh"
+alias devilup="cd ~/devilbox/ && sudo docker-compose up -d"
+alias devildown="cd ~/devilbox/ && sudo docker-compose down"
+alias devilp="cd /mnt/amparostorage/proyectosdevilbox"
+alias devilcd="cd /mnt/amparostorage/proyectosdevilbox/"
+
+# -----------------------------------------------------------------
+# Enviroment Vars
+# -----------------------------------------------------------------
+
+# editor
+export EDITOR="/usr/bin/vim"
