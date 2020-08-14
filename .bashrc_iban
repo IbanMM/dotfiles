@@ -9,7 +9,7 @@ alias sbash="source ~/.bashrc"
 alias storage="cd /mnt/amparostorage/"
 
 # edit i3 config file
-alias i3conf="vim ~/.config/i3/config"
+alias i3conf="code ~/.config/i3/config"
 
 # mkdir and cd the cretated folder
 
@@ -81,7 +81,32 @@ alias devilshell="cd ~/devilbox/ && sudo ./shell.sh"
 alias devilup="cd ~/devilbox/ && sudo docker-compose up -d"
 alias devildown="cd ~/devilbox/ && sudo docker-compose down"
 alias devilp="cd /mnt/amparostorage/proyectosdevilbox"
-alias devilcd="cd /mnt/amparostorage/proyectosdevilbox/"
+alias devilcd="cd ~/proyectosdevilbox/"
+
+devilfolders () {
+
+    cd ~/proyectosdevilbox/
+
+    d="htdocs"
+
+    PS3="Selecciona un proyecto: "
+
+    select FOLDER in echo *
+    do
+        cd ~/proyectosdevilbox/$FOLDER && [ -d "${d}" ] && cd $d; break || break
+    done
+
+}
+
+# -----------------------------------------------------------------
+# OpenVPN oficina
+# -----------------------------------------------------------------
+oficina () {
+
+    cd ~/Documents
+    sudo openvpn pc_iban__ssl_vpn_config.ovpn
+
+}
 
 # -----------------------------------------------------------------
 # Enviroment Vars

@@ -15,7 +15,7 @@ set $mod Mod4
 
 # gaps config
 for_window [class="^.*"] border pixel 1
-gaps inner 10
+gaps inner 5
 gaps outer 0
 smart_borders on
 
@@ -33,6 +33,7 @@ font pango:DejaVu Sans Mono 12
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
 #exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+exec --no-startup-id xss-lock --transfer-sleep-lock -- slock
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
@@ -74,6 +75,9 @@ bindsym $mod+d exec rofi -show run
 
 # power menu in rofi
 bindsym $mod+x exec bash ~/.config/rofi/power.sh
+
+# devilbox menu in rofi
+bindsym $mod+p exec bash ~/.config/rofi/devil.sh
 
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
@@ -131,8 +135,7 @@ bindsym $mod+a focus parent
 #bindsym $mod+d focus child
 
 # iban monitors
-set $firstMonitor DP-1
-set $secondMonitor HDMI-1
+set $firstMonitor eDP-1
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
@@ -152,11 +155,11 @@ workspace 2 output $firstMonitor
 workspace 3 output $firstMonitor
 workspace 4 output $firstMonitor
 workspace 5 output $firstMonitor
-workspace 6 output $secondMonitor
-workspace 7 output $secondMonitor
-workspace 8 output $secondMonitor
-workspace 9 output $secondMonitor
-workspace 10 output $secondMonitor
+workspace 6 output $firstMonitor
+workspace 7 output $firstMonitor
+workspace 8 output $firstMonitor
+workspace 9 output $firstMonitor
+workspace 10 output $firstMonitor
 
 # switch to workspace
 bindsym $mod+1 workspace 1
@@ -219,31 +222,12 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 
-# HDMI monitor
-bar {
-        output HDMI-1
-        status_command i3status --config ~/.config/i3status/config
-        font pango:DejaVu Sans Mono 12
-        tray_output none
-        colors {
-                background #282A36
-                statusline #F8F8F2
-                separator  #44475A
-
-                focused_workspace  #44475A #44475A #F8F8F2
-                active_workspace   #282A36 #44475A #F8F8F2
-                inactive_workspace #282A36 #282A36 #BFBFBF
-                urgent_workspace   #FF5555 #FF5555 #F8F8F2
-                binding_mode       #FF5555 #FF5555 #F8F8F2
-        }
-}
-
 # Display Port monitor (4k)
 bar {
-        output DP-1
-        tray_output DP-1
+        output eDP
+        tray_output eDP
         status_command i3status --config ~/.config/i3status/config-4k
-        font pango:DejaVu Sans Mono 16
+        font pango:DejaVu Sans Mono 12
         colors {
                 background #282A36
                 statusline #F8F8F2
