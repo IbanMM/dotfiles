@@ -135,7 +135,8 @@ bindsym $mod+a focus parent
 #bindsym $mod+d focus child
 
 # iban monitors
-set $firstMonitor eDP-1
+set $firstMonitor DP-1
+set $secondMonitor HDMI-1
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
@@ -155,11 +156,11 @@ workspace 2 output $firstMonitor
 workspace 3 output $firstMonitor
 workspace 4 output $firstMonitor
 workspace 5 output $firstMonitor
-workspace 6 output $firstMonitor
-workspace 7 output $firstMonitor
-workspace 8 output $firstMonitor
-workspace 9 output $firstMonitor
-workspace 10 output $firstMonitor
+workspace 6 output $secondMonitor
+workspace 7 output $secondMonitor
+workspace 8 output $secondMonitor
+workspace 9 output $secondMonitor
+workspace 10 output $secondMonitor
 
 # switch to workspace
 bindsym $mod+1 workspace 1
