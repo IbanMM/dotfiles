@@ -19,6 +19,20 @@ mkcd() {
 
 }
 
+# list the content of a folder
+hl() {
+
+    ls -lah
+
+}
+
+# search pattern in files
+sif() {
+
+    grep --exclude=$3  -rnw $1 -e $2
+
+}
+
 # -----------------------------------------------------------------
 # Pacman
 # -----------------------------------------------------------------
@@ -90,6 +104,7 @@ ffremovea () {
 # -----------------------------------------------------------------
 # VPN Office
 # -----------------------------------------------------------------
+
 oficina () {
     
     cd ~/Downloads && sudo openvpn pc_iban__ssl_vpn_config.ovpn    
@@ -106,7 +121,7 @@ alias devildown="cd ~/devilbox/ && sudo docker-compose down"
 alias devilp="cd /mnt/amparostorage/proyectosdevilbox"
 alias devilcd="cd /mnt/amparostorage/proyectosdevilbox"
 
-devilfolders () {
+dfl () {
 
     cd /mnt/amparostorage/proyectosdevilbox
 
