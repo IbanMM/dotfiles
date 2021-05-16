@@ -3,13 +3,19 @@
 # -----------------------------------------------------------------
 
 # source bash
-alias sbash="source ~/.bashrc"
+alias bash-reload="source ~/.bashrc"
 
 # cd amparostorage
 alias storage="cd /mnt/amparostorage/"
 
 # edit i3 config file
 alias i3conf="code ~/.config/i3/config"
+
+# list always cool :)
+alias ls="exa --long"
+
+# edit custom bashrc
+alias bash-iban="code ~/.bashrc_iban"
 
 # mkdir and cd the cretated folder
 
@@ -19,19 +25,17 @@ mkcd() {
 
 }
 
-# list the content of a folder
-hl() {
-
-    ls -lah
-
-}
-
 # search pattern in files
 sif() {
 
     grep --exclude=$3  -rnw $1 -e $2
 
 }
+
+# bbaa alias
+
+alias bbaab="cd /mnt/amparostorage/proyectos2021/bbaa-alava-backend && npm run start"
+alias bbaaf="cd /mnt/amparostorage/proyectos2021/bbaa-alava-frontend && npm run dev"
 
 # Only last two folders in bash path
 PROMPT_DIRTRIM=2
@@ -98,6 +102,12 @@ ffencode360p () {
 
 }
 
+ffencode240p () {
+
+    ffmpeg -i "$1" -preset slow -codec:a aac -b:a 128k -codec:v libx264 -pix_fmt yuv420p -b:v 550k -minrate 300k -maxrate 700k -bufsize 1000k -vf scale=-1:240 -movflags +faststart "$2"
+
+}
+
 ffremovea () {
 
     ffmpeg -i "$1" -c copy -an "$2"
@@ -143,5 +153,22 @@ dfl () {
 # Enviroment Vars
 # -----------------------------------------------------------------
 
+#dotnet core
+export DOTNET_ROOT=/usr/share/dotnet
+export MSBuildSDKsPath=$( echo /usr/share/dotnet/sdk/3.*/Sdks );
+
 # editor
 export EDITOR="/usr/bin/vim"
+
+# terminal emulator
+export TERM=alacritty
+
+
+# nvm
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+
+# -----------------------------------------------------------------
+# Startship
+# -----------------------------------------------------------------
+eval "$(starship init bash)"
